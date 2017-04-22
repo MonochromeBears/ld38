@@ -46,12 +46,6 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 
 		this.strategies [this.state].action (this);
-
-//		var earth = GameObject.Find ("Sphere");
-//		this.transform.rotation = 
-//			Quaternion.FromToRotation (earth.transform.position, this.transform.position) +
-//			;
-
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -100,6 +94,10 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void stay() {
 		this.state = State.Idle;
+	}
+
+	public void regenerate() {
+		this.deathTime = this.maxDeathTime;
 	}
 
 	public float getSpeed() {
