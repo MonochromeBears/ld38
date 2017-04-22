@@ -28,19 +28,33 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 		this.strategies = new Dictionary<State, StrategyInterface>() {
 			{ State.Idle, new IdleStrategy() },
-			{ State.Move, new MoveStrategy() }
+			{ State.Move, new MoveStrategy() },
+			{ State.Collect, new CollectStrategy() }
 		};
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		this.strategies [this.state].move (this);
+		this.strategies [this.state].action (this);
 
+	}
+
+	void OnTriggerEnter(Collider other) {
+		Resource resource = other.gameObject.GetComponent<Resource>();
+
+		if (resource != null) {
+			this.collectResource (resource);
+		}
 	}
 
 	public void moveToResource(Resource resource) {
 		this.state = State.Move;
 		(this.strategies [this.state] as MoveStrategy).target = resource;
+	}
+
+	public void collectResource(Resource resource) {
+		this.state = State.Collect;
+		(this.strategies [this.state] as CollectStrategy).resource = resource;
 	}
 
 	public float getSpeed() {
