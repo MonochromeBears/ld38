@@ -49,6 +49,14 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 	}
 
+	void OnTriggerStay(Collider other) {
+		Resource resource = other.gameObject.GetComponent<Resource>();
+
+		if (resource != null) {
+			this.collectResource (resource);
+		}
+	}
+
 	public void moveToResource(Resource resource) {
 		this.state = State.Move;
 		(this.strategies [this.state] as MoveStrategy).target = resource;
@@ -57,6 +65,10 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	public void collectResource(Resource resource) {
 		this.state = State.Collect;
 		(this.strategies [this.state] as CollectStrategy).resource = resource;
+	}
+
+	public void stay() {
+		this.state = State.Idle;
 	}
 
 	public float getSpeed() {
@@ -70,5 +82,21 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public bool isAttacked() {
 		return this.state == State.Attacked;
+	}
+
+	public void collect(int capacity) {
+		this.capacity += capacity;
+
+		if (this.capacity > this.maxCapacity) {
+			this.capacity = this.maxCapacity;
+		}
+	}
+
+	public bool isFull() {
+		return this.capacity >= this.maxCapacity;
+	}
+
+	public int getCapacity() {
+		return this.capacity;
 	}
 }

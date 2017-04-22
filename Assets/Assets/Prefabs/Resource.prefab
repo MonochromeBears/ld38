@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23199058290820302}
   - component: {fileID: 95470352527640002}
   - component: {fileID: 114923445052223036}
+  - component: {fileID: 65023150713117152}
   m_Layer: 0
   m_Name: Resource
   m_TagString: resource
@@ -82,6 +83,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542132090744608}
   m_Mesh: {fileID: 4300000, guid: 4d7cc98ae5cab2947a8d9fa3c15e4fa8, type: 3}
+--- !u!65 &65023150713117152
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542132090744608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05145663, y: 0.051840127, z: 0.03730829}
+  m_Center: {x: -0.0055656256, y: 0.023469415, z: 0.013663687}
 --- !u!95 &95470352527640002
 Animator:
   serializedVersion: 3
@@ -110,3 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b2f10d0f7854597b5c4e68ae84a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max: 50
+  min: 25
+  capacity: 0

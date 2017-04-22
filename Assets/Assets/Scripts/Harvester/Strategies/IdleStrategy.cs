@@ -5,7 +5,9 @@ using UnityEngine;
 public class IdleStrategy: StrategyInterface
 {
 	public void action(HarvesterController harvester) {
-		Resource[] resources = Resources.FindObjectsOfTypeAll<Resource> ();
+		Debug.Log ("I'm stay");
+
+		Resource[] resources = Resources.FindObjectsOfTypeAll<Resource> ().Where (r => !r.isEmpty ()).ToArray();
 
 		if (resources.Count () == 0) {
 			return;
