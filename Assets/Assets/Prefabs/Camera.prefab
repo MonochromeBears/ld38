@@ -130,7 +130,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 194dc7177daa74473a6817b709ffd49c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   distance: 0
   position: {x: 0, y: 0, z: 0}
   isActivated: 0
-  aimTexture: {fileID: 2800000, guid: cc1466b891f66427c9193c5a21cdde87, type: 3}
+  aimTexture: {fileID: 2800000, guid: 27351f384dd5f432a934cd3e7a854e9e, type: 3}
 --- !u!114 &114796235066802774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,7 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb76f10235dec4825900332666ad9dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 1
   fireRate: 1
   weaponRange: 1000
   hitForce: 100
