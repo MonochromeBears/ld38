@@ -9,8 +9,10 @@ namespace Enemy
 		public Vector3 tempDirection;
 
 		public void move(EnemyController enemy) {
-			
-			this.target.attackedByEnemy(enemy);
+
+			if (!this.target.isAttacked()) {
+				this.target.attackedByEnemy(enemy);
+			}
 			
 			Vector3 motion = Vector3.MoveTowards (
 				enemy.transform.position, 

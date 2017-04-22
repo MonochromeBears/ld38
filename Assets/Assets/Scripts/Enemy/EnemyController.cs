@@ -23,7 +23,8 @@ namespace Enemy
 			this.strategies = new Dictionary<EnemyState, StrategyInterface>() {
 				{ EnemyState.Idle, new IdleStrategy() },
 				{ EnemyState.Move, new MoveStrategy() },
-				{ EnemyState.Attack, new AttackStrategy() }
+				{ EnemyState.Attack, new AttackStrategy() },
+				{ EnemyState.Destroyed, new DestroyStrategy() }
 			};
 		}
 		
@@ -43,13 +44,17 @@ namespace Enemy
 			(this.strategies [this.state] as AttackStrategy).tempDirection = Random.onUnitSphere * 30;
 		}
 
+		public bool hasTakenHarvester() {
+			return this.takenHarvester != null;
+		}
+
 		public void goToIdle() {
 			this.takenHarvester = null;
 			this.state = EnemyState.Idle;
 		}
 
 		public void destroy() {
-			this.state = EnemyState.Attack;
+			this.state = EnemyState.Destroyed;
 		}
 
 		public float getSpeed() {
