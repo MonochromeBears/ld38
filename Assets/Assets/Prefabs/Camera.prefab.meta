@@ -1,8 +1,6 @@
 fileFormatVersion: 2
-guid: 22eb1360973ea4fe6840dc2852d2382f
-labels:
-- Camera
-timeCreated: 1492861035
+guid: c1d7e7b71c14b4d578e7483f672b6eb5
+timeCreated: 1492865158
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 100100000
