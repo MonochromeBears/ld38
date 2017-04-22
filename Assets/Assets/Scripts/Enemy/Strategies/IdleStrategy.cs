@@ -17,6 +17,10 @@ namespace Enemy
 			float minDistance = Vector3.Distance(enemy.transform.position, closestHarvester.transform.position);
 
 			foreach (HarvesterController harvester in harvesters) {
+				if (harvester.isAttacked()) {
+					continue;
+				}
+
 				float distance = Vector3.Distance (enemy.transform.position, closestHarvester.transform.position);
 
 				if (distance < minDistance) {

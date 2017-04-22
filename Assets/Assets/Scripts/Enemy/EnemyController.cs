@@ -21,7 +21,8 @@ namespace Enemy
 		void Start () {
 			this.strategies = new Dictionary<EnemyState, StrategyInterface>() {
 				{ EnemyState.Idle, new IdleStrategy() },
-				{ EnemyState.Move, new MoveStrategy() }
+				{ EnemyState.Move, new MoveStrategy() },
+				{ EnemyState.Attack, new AttackStrategy() }
 			};
 		}
 		
@@ -35,8 +36,26 @@ namespace Enemy
 			(this.strategies [this.state] as MoveStrategy).target = harvester;
 		}
 
+		public void attackHarvester(HarvesterController harvester) {
+			this.state = EnemyState.Attack;
+			(this.strategies [this.state] as AttackStrategy).target = harvester;
+			(this.strategies [this.state] as AttackStrategy).tempDirection = Random.onUnitSphere * 30;
+		}
+
+		public void goToIdle() {
+			this.state = EnemyState.Idle;
+		}
+
 		public float getSpeed() {
 			return this.speed;
+		}
+
+		void OnTriggerEnter(Collider other) {
+			HarvesterController harvester = other.gameObject.GetComponent<HarvesterController>();
+
+			if (harvester != null) {
+				this.attackHarvester(harvester);
+			}
 		}
 	}
 }

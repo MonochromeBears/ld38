@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enemy;
 
 public enum State
 {
@@ -29,7 +30,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		this.strategies = new Dictionary<State, StrategyInterface>() {
 			{ State.Idle, new IdleStrategy() },
 			{ State.Move, new MoveStrategy() },
-			{ State.Collect, new CollectStrategy() }
+			{ State.Collect, new CollectStrategy() },
+			{ State.Attacked, new AttackedStrategy() }
 		};
 	}
 	
@@ -59,5 +61,14 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public float getSpeed() {
 		return this.speed;
+	}
+
+	public void attackedByEnemy(EnemyController enemy) {
+		this.state = State.Attacked;
+		(this.strategies [this.state] as AttackedStrategy).enemy = enemy;
+	}
+
+	public bool isAttacked() {
+		return this.state == State.Attacked;
 	}
 }
