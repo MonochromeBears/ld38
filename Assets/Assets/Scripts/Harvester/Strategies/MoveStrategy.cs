@@ -12,7 +12,10 @@ public class MoveStrategy: StrategyInterface
 			Time.deltaTime * harvester.speed
 		);
 
-		harvester.transform.LookAt (this.target.transform.position);
 		harvester.transform.position = motion;
+				var earth = GameObject.Find ("Sphere");
+//		this.transform.rotation =
+//			Quaternion.FromToRotation (earth.transform.position, this.transform.position);
+		harvester.transform.LookAt (this.target.transform.position, earth.transform.position - harvester.transform.position);
 	}
 }

@@ -25,6 +25,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	// Use this for initialization
 	void Start () {
+		this.GetComponent<Rigidbody> ().freezeRotation = true;
 		this.deathTime = this.maxDeathTime;
 
 		this.strategies = new Dictionary<State, StrategyInterface>() {
@@ -45,6 +46,12 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 
 		this.strategies [this.state].action (this);
+
+//		var earth = GameObject.Find ("Sphere");
+//		this.transform.rotation = 
+//			Quaternion.FromToRotation (earth.transform.position, this.transform.position) +
+//			;
+
 	}
 
 	void OnTriggerEnter(Collider other) {
