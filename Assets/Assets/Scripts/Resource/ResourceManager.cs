@@ -22,6 +22,13 @@ public class ResourceManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		var resources = this.resources.FindAll (resource => resource.isEmpty ());
+
+		foreach (Resource resource in resources) {
+			this.resources.Remove (resource);
+			Destroy (resource.gameObject);
+			this.spawn ();
+		}
 	}
 
 	void spawn() {
@@ -29,14 +36,17 @@ public class ResourceManager : MonoBehaviour {
 
 		Vector3 resourcePosition = Vector3.Scale (Random.onUnitSphere, earthTransform.localScale) / 2;
 
-		GameObject resource = Object.Instantiate (
+		GameObject resourceObject = Object.Instantiate (
 			this.resource, 
 			resourcePosition + earth.transform.position,
-			new Quaternion()
+			Quaternion.FromToRotation (earth.transform.position, resourcePosition)
 		);
 
-		resource.transform.rotation = Quaternion.FromToRotation (earth.transform.position, resourcePosition);
-		Debug.Log (Quaternion.LookRotation(earth.transform.position - resourcePosition));
-		this.resources.Add (resource.GetComponent<Resource>());
+		Resource resource = resourceObject.GetComponent<Resource> ();
+
+		resource.min = this.min;
+		resource.max = this.max;
+
+		this.resources.Add (resource);
 	}
 }

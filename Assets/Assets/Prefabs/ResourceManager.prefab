@@ -55,4 +55,4 @@ MonoBehaviour:
   earth: {fileID: 0}
   min: 50
   max: 100
-  initialCount: 10
+  initialCount: 25
