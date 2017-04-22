@@ -5,24 +5,25 @@ using UnityEngine;
 public class IdleStrategy: StrategyInterface
 {
 	public void action(HarvesterController harvester) {
-
 		harvester.GetComponent<SphereCollider>().enabled = true;
 
 		MonoBehaviour target;
 		bool found = false;
 
-		if (harvester.isFull ()) {
-			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
-			Debug.Log (found);
-		} else {
+		if (!harvester.isFull ()) {
 			found = this.tryAndFindNearest (
 				Resources
 					.FindObjectsOfTypeAll<Resource> ()
 					.Where (r => !r.isEmpty ()).ToArray (),
 				harvester, out target
 			);
+		} else {
+			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
 		}
 
+		if (!found) {
+			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
+		}
 
 		if (found) {
 			harvester.moveTo (target);

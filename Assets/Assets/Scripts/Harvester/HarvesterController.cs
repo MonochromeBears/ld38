@@ -31,7 +31,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 			{ State.Idle, new IdleStrategy() },
 			{ State.Move, new MoveStrategy() },
 			{ State.Collect, new CollectStrategy() },
-			{ State.Attacked, new AttackedStrategy() }
+			{ State.Attacked, new AttackedStrategy() },
+			{ State.Unloading, new UnloadingStrategy() }
 		};
 	}
 	
@@ -50,18 +51,22 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	void checkCollision(Collider other) {
-		Resource resource = other.gameObject.GetComponent<Resource>();
+		if (!this.isFull ()) {
+			Resource resource = other.gameObject.GetComponent<Resource> ();
 
-		if (resource != null) {
-			this.collectResource (resource);
+			if (resource != null) {
+				this.collectResource (resource);
 
-			return;
+				return;
+			}
 		}
 
-		Sylo sylo = other.gameObject.GetComponent<Sylo> ();
+		if (!this.isEmpty ()) {
+			Sylo sylo = other.gameObject.GetComponent<Sylo> ();
 
-		if (sylo != null) {
-			this.unloading (sylo);
+			if (sylo != null) {
+				this.unloading (sylo);
+			}
 		}
 	}
 
