@@ -5,7 +5,7 @@ public class MoveStrategy: StrategyInterface
 {
 	public MonoBehaviour target;
 
-	public void move(HarvesterController harvester) {
+	public void action(HarvesterController harvester) {
 		Vector3 motion = Vector3.MoveTowards (
 			harvester.transform.position, 
 			this.target.transform.position, 
