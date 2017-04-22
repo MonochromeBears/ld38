@@ -100,7 +100,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	public void attackedByEnemy(EnemyController enemy) {
-		this.GetComponent<SphereCollider>().enabled = false;
+		this.GetComponent<BoxCollider>().enabled = false;
 
 		this.state = State.Attacked;
 		(this.strategies [this.state] as AttackedStrategy).enemy = enemy;
