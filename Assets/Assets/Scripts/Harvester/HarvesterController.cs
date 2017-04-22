@@ -38,8 +38,13 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	
 	// Update is called once per frame
 	void Update () {
-		this.strategies [this.state].action (this);
+		if (this.isKilled ()) {
+			Destroy (this.gameObject, 1);
 
+			return;
+		}
+
+		this.strategies [this.state].action (this);
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -96,6 +101,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void attackedByEnemy(EnemyController enemy) {
 		this.GetComponent<SphereCollider>().enabled = false;
+
 		this.state = State.Attacked;
 		(this.strategies [this.state] as AttackedStrategy).enemy = enemy;
 	}
@@ -120,12 +126,28 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 	}
 
+	public bool damage() {
+		this.deathTime -= Time.deltaTime;
+
+		if (this.deathTime < 0) {
+			this.deathTime = 0;
+		}
+
+		Debug.Log ("Time to death: " + this.deathTime);
+
+		return this.isKilled ();
+	}
+
 	public bool isFull() {
 		return this.capacity >= this.maxCapacity;
 	}
 
 	public bool isEmpty() {
 		return this.capacity == 0;
+	}
+
+	public bool isKilled() {
+		return this.deathTime == 0;
 	}
 
 	public int getCapacity() {
