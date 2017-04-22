@@ -10,6 +10,7 @@ namespace Enemy
 	}
 
 	public class EnemyController : MonoBehaviour {
+		public GameObject explosion;
 		public float speed = 5;
 		public float rotationSpeed = 1;
 
@@ -55,6 +56,7 @@ namespace Enemy
 
 		public void destroy() {
 			this.state = EnemyState.Destroyed;
+			(this.strategies [this.state] as DestroyStrategy).explosion = this.explosion;
 		}
 
 		public float getSpeed() {
