@@ -13,6 +13,6 @@ public class MoveStrategy: StrategyInterface
 		);
 
 		harvester.transform.LookAt (this.target.transform.position);
-		harvester.transform.localPosition = motion;
+		harvester.transform.position = motion;
 	}
 }

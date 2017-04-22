@@ -9,6 +9,7 @@ public class IdleStrategy: StrategyInterface
 
 		Resource[] resources = Resources.FindObjectsOfTypeAll<Resource> ().Where (r => !r.isEmpty ()).ToArray();
 
+
 		if (resources.Count () == 0) {
 			return;
 		}
