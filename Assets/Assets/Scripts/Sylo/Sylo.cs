@@ -5,6 +5,8 @@ using UnityEngine;
 public class Sylo : MonoBehaviour {
 	public int damage = 100;
 
+	private int capacity = 0;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,5 +15,9 @@ public class Sylo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void load(int capacity) {
+		this.capacity = capacity;
 	}
 }

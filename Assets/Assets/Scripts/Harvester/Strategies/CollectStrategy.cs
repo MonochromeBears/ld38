@@ -10,7 +10,7 @@ public class CollectStrategy: StrategyInterface
 			return;
 		}
 
-		if (resource.isEmpty ()) {
+		if (resource.isEmpty () || harvester.isFull()) {
 			harvester.stay ();
 
 			return;
@@ -20,9 +20,5 @@ public class CollectStrategy: StrategyInterface
 		harvester.collect (collected);
 
 		Debug.Log ("Collect: " + harvester.getCapacity() + "; Left: " + resource.getCapacity());
-
-		if (harvester.isFull()) {
-			Debug.Log ("I'm full");
-		}
 	}
 }

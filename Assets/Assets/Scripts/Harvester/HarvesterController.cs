@@ -54,6 +54,14 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 		if (resource != null) {
 			this.collectResource (resource);
+
+			return;
+		}
+
+		Sylo sylo = other.gameObject.GetComponent<Sylo> ();
+
+		if (sylo != null) {
+			this.unloading (sylo);
 		}
 	}
 
@@ -66,6 +74,12 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		this.state = State.Collect;
 		(this.strategies [this.state] as CollectStrategy).resource = resource;
 	}
+
+	public void unloading(Sylo sylo) {
+		this.state = State.Unloading;
+		(this.strategies [this.state] as UnloadingStrategy).sylo = sylo;
+	}
+
 
 	public void stay() {
 		this.state = State.Idle;
@@ -93,9 +107,20 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 	}
 
+	public void unload(int capacity) {
+		this.capacity -= capacity;
+
+		if (this.capacity < 0) {
+			this.capacity = 0;
+		}
+	}
+
 	public bool isFull() {
-		Debug.Log ("Capacity: " + this.capacity);
 		return this.capacity >= this.maxCapacity;
+	}
+
+	public bool isEmpty() {
+		return this.capacity == 0;
 	}
 
 	public int getCapacity() {
