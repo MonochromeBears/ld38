@@ -42,14 +42,14 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Resource resource = other.gameObject.GetComponent<Resource>();
-
-		if (resource != null) {
-			this.collectResource (resource);
-		}
+		this.checkCollision (other);
 	}
 
 	void OnTriggerStay(Collider other) {
+		this.checkCollision (other);
+	}
+
+	void checkCollision(Collider other) {
 		Resource resource = other.gameObject.GetComponent<Resource>();
 
 		if (resource != null) {
@@ -57,9 +57,9 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		}
 	}
 
-	public void moveToResource(Resource resource) {
+	public void moveTo(MonoBehaviour target) {
 		this.state = State.Move;
-		(this.strategies [this.state] as MoveStrategy).target = resource;
+		(this.strategies [this.state] as MoveStrategy).target = target;
 	}
 
 	public void collectResource(Resource resource) {

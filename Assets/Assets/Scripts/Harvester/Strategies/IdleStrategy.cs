@@ -7,25 +7,47 @@ public class IdleStrategy: StrategyInterface
 	public void action(HarvesterController harvester) {
 		Debug.Log ("I'm stay");
 
-		Resource[] resources = Resources.FindObjectsOfTypeAll<Resource> ().Where (r => !r.isEmpty ()).ToArray();
+		MonoBehaviour target;
+		bool found = false;
 
-
-		if (resources.Count () == 0) {
-			return;
+		if (harvester.isFull ()) {
+			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
+			Debug.Log (target);
+		} else {
+			found = this.tryAndFindNearest (
+				Resources
+					.FindObjectsOfTypeAll<Resource> ()
+					.Where (r => !r.isEmpty ()).ToArray (),
+				harvester, out target
+			);
 		}
-		Resource closestResource = resources [0];
 
-		float minDistance = Vector3.Distance (harvester.transform.position, closestResource.transform.position);
 
-		foreach (Resource resource in resources) {
-			float distance = Vector3.Distance (harvester.transform.position, resource.transform.position);
+		if (found) {
+			harvester.moveTo (target);
+		}
+	}
+
+	protected bool tryAndFindNearest(MonoBehaviour[] objects, MonoBehaviour from, out MonoBehaviour closestObject) {
+		closestObject = null;
+
+		if (objects.Count () == 0) {
+			return false;
+		}
+
+		closestObject = objects [0];
+
+		float minDistance = Vector3.Distance (from.transform.position, closestObject.transform.position);
+
+		foreach (MonoBehaviour target in objects) {
+			float distance = Vector3.Distance (from.transform.position, target.transform.position);
 
 			if (distance < minDistance) {
 				minDistance = distance;
-				closestResource = resource;
+				closestObject = target;
 			}
 		}
 
-		harvester.moveToResource (closestResource);
+		return true;
 	}
 }
