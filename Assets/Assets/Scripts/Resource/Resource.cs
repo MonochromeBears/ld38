@@ -17,7 +17,7 @@ public class Resource : MonoBehaviour {
 	void Update () {
 		if (this.isEmpty ()) {
 			Debug.Log ("Destroy");
-			Destroy (this.gameObject, 2);
+			Destroy (this.gameObject);
 		}
 	}
 

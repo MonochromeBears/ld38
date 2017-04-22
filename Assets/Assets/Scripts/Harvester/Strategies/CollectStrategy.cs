@@ -6,11 +6,7 @@ public class CollectStrategy: StrategyInterface
 	public Resource resource;
 
 	public void action(HarvesterController harvester) {
-		if (this.resource == null) {
-			return;
-		}
-
-		if (resource.isEmpty () || harvester.isFull()) {
+		if (this.resource == null || resource.isEmpty () || harvester.isFull()) {
 			harvester.stay ();
 
 			return;
@@ -18,7 +14,6 @@ public class CollectStrategy: StrategyInterface
 
 		int collected = this.resource.collect (harvester.collectSpeed);
 		harvester.collect (collected);
-
-		Debug.Log ("Collect: " + harvester.getCapacity() + "; Left: " + resource.getCapacity());
+		Debug.Log ("Collected: " + harvester.getCapacity ());
 	}
 }
