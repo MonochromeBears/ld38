@@ -69,7 +69,6 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void stay() {
 		this.state = State.Idle;
-		this.GetComponent<SphereCollider>().enabled = true;
 	}
 
 	public float getSpeed() {
