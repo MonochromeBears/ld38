@@ -5,7 +5,7 @@ using UnityEngine;
 public class IdleStrategy: StrategyInterface
 {
 	public void action(HarvesterController harvester) {
-		harvester.GetComponent<SphereCollider>().enabled = true;
+		harvester.GetComponent<BoxCollider>().enabled = true;
 
 		MonoBehaviour target;
 		bool found = false;
