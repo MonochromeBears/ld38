@@ -93,6 +93,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	public bool isFull() {
+		Debug.Log ("Capacity: " + this.capacity);
 		return this.capacity >= this.maxCapacity;
 	}
 

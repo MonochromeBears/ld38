@@ -12,7 +12,6 @@ public class IdleStrategy: StrategyInterface
 
 		if (harvester.isFull ()) {
 			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
-			Debug.Log (target);
 		} else {
 			found = this.tryAndFindNearest (
 				Resources

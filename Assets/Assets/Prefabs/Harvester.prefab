@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 1
-  maxCapacity: 100
+  maxCapacity: 30
   collectSpeed: 1
   unloadingSpeed: 1
   maxDeathTime: 2
