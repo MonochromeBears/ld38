@@ -9,11 +9,12 @@ public class Gravity : MonoBehaviour {
  
     public float gravitationalPull;
  
-    void Start() {
-        objects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-    }
+    // void Start() {
+    //     objects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+    // }
 
     void FixedUpdate() {
+        objects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         //apply spherical gravity to selected objects (set the objects in editor)
         foreach (GameObject o in objects) {
 			Rigidbody rb = o.GetComponent<Rigidbody>();
