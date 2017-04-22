@@ -16,6 +16,7 @@ public class LaserGun : MonoBehaviour {
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
 
 
+
 	void Start () 
 	{
 		// Get and store a reference to our LineRenderer component
