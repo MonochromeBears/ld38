@@ -6,13 +6,14 @@ namespace Enemy
 {
 	public enum EnemyState
 	{
-		Idle, Move, Attack, Attacked, Destroyed
+		Idle, Move, Attack, Destroyed
 	}
 
 	public class EnemyController : MonoBehaviour {
 		public float speed = 5;
 		public float rotationSpeed = 1;
 
+		private HarvesterController takenHarvester;
 		private EnemyState state = EnemyState.Idle;
 
 		private Dictionary<EnemyState, StrategyInterface> strategies;
@@ -43,6 +44,7 @@ namespace Enemy
 		}
 
 		public void goToIdle() {
+			this.takenHarvester = null;
 			this.state = EnemyState.Idle;
 		}
 
@@ -50,10 +52,15 @@ namespace Enemy
 			return this.speed;
 		}
 
+		public HarvesterController getTakenHarvester() {
+			return this.takenHarvester;
+		}
+
 		void OnTriggerEnter(Collider other) {
 			HarvesterController harvester = other.gameObject.GetComponent<HarvesterController>();
 
 			if (harvester != null) {
+				this.takenHarvester = harvester;
 				this.attackHarvester(harvester);
 			}
 		}

@@ -20,7 +20,7 @@ namespace Enemy
 			);
 
 			enemy.transform.LookAt (this.target.transform.position);
-			enemy.transform.localPosition = motion;
+			enemy.transform.position = motion;
 		}
 	}
 }
