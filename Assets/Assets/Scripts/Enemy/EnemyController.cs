@@ -65,13 +65,31 @@ namespace Enemy
 			return this.takenHarvester;
 		}
 
-		void OnTriggerEnter(Collider other) {
-			HarvesterController harvester = other.gameObject.GetComponent<HarvesterController>();
+		void OnCollisionEnter (Collision col)
+		{
+			if (this.hasTakenHarvester()) {
+				return;
+			}
+			// if(col.gameObject.name == "prop_powerCube")
+			// {
+			// 	Destroy(col.gameObject);
+			// }
+
+			HarvesterController harvester = col.gameObject.GetComponent<HarvesterController>();
 
 			if (harvester != null) {
 				this.takenHarvester = harvester;
 				this.attackHarvester(harvester);
 			}
 		}
+
+		// void OnTriggerEnter(Collider other) {
+		// 	HarvesterController harvester = other.gameObject.GetComponent<HarvesterController>();
+
+		// 	if (harvester != null) {
+		// 		this.takenHarvester = harvester;
+		// 		this.attackHarvester(harvester);
+		// 	}
+		// }
 	}
 }

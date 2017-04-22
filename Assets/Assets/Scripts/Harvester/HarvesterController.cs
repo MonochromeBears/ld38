@@ -69,6 +69,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void stay() {
 		this.state = State.Idle;
+		this.GetComponent<SphereCollider>().enabled = true;
 	}
 
 	public float getSpeed() {
@@ -76,6 +77,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	public void attackedByEnemy(EnemyController enemy) {
+		this.GetComponent<SphereCollider>().enabled = false;
 		this.state = State.Attacked;
 		(this.strategies [this.state] as AttackedStrategy).enemy = enemy;
 	}
