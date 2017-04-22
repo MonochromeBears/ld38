@@ -48,6 +48,10 @@ namespace Enemy
 			this.state = EnemyState.Idle;
 		}
 
+		public void destroy() {
+			this.state = EnemyState.Attack;
+		}
+
 		public float getSpeed() {
 			return this.speed;
 		}

@@ -8,7 +8,7 @@ namespace Enemy
 		public void move(EnemyController enemy) {
 			
 			enemy.getTakenHarvester().stay();
-			//Destroy(enemy);		
+			EnemyController.Destroy(enemy);		
 		}
 	}
 }
