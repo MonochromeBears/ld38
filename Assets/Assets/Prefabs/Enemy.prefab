@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4770613269705966}
   - component: {fileID: 33340812948455738}
-  - component: {fileID: 65419135764166118}
   - component: {fileID: 23351946257257344}
   - component: {fileID: 54630389539726194}
+  - component: {fileID: 135872592385365308}
+  - component: {fileID: 114165580458150468}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -97,8 +98,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65419135764166118
-BoxCollider:
+--- !u!114 &114165580458150468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210397836906264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b3423e07c7a457d8b85c085a76e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 1
+--- !u!135 &135872592385365308
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -107,5 +121,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.9110651
+  m_Center: {x: 0.04772708, y: -0.03442073, z: 0.04908538}
