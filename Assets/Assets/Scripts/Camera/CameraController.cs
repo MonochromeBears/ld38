@@ -18,15 +18,8 @@ public class CameraController : MonoBehaviour {
 	public Texture aimTexture;
 
 
-	float x = 0.0f;
-	float y = 0.0f;
-
-
 	// Use this for initialization
 	void Start () {
-		Vector3 angles = transform.eulerAngles;
-		x = angles.y;
-		y = angles.x;
 	}
 
 	void Update() {
