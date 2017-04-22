@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114796235066802774}
   - component: {fileID: 82311657456261126}
   - component: {fileID: 120185293948174870}
+  - component: {fileID: 114861800212732174}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -279,6 +280,18 @@ MonoBehaviour:
   fireRate: 1
   weaponRange: 1000
   hitForce: 100
+--- !u!114 &114861800212732174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950264729808232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c111628da5147422d90f735509d66229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLines: 8
 --- !u!120 &120185293948174870
 LineRenderer:
   m_ObjectHideFlags: 1

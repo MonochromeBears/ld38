@@ -14,7 +14,7 @@ public class LaserGun : MonoBehaviour {
 	private AudioSource gunAudio;										// Reference to the audio source which will play our shooting sound effect
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
-
+	private GameLog log;
 
 
 	void Start () 
@@ -27,6 +27,8 @@ public class LaserGun : MonoBehaviour {
 
 		// Get and store a reference to our Camera by searching this GameObject and its parents
 		fpsCam = GetComponentInParent<Camera>();
+
+		log = fpsCam.GetComponent<GameLog>();
 	}
 	
 
@@ -56,6 +58,7 @@ public class LaserGun : MonoBehaviour {
 				{
 					var enemy = hit.transform.gameObject;
 					enemy.GetComponent<EnemyController>().destroy();
+					log.NewActivity("Slime destroyed");
 				}
 //
 //				// Get a reference to a health script attached to the collider we hit
