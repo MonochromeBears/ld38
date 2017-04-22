@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enemy;
 
 
 public class LaserGun : MonoBehaviour {
-public int gunDamage = 1;											// Set the number of hitpoints that this gun will take away from shot objects with a health script
 	public float fireRate = 0.25f;										// Number in seconds which controls how often the player can fire
 	public float weaponRange = 500f;										// Distance in Unity units over which the player can fire
 	public float hitForce = 100f;										// Amount of force which will be added to objects with a rigidbody shot by the player
@@ -50,6 +50,12 @@ public int gunDamage = 1;											// Set the number of hitpoints that this gun
 			{
 				// Set the end position for our laser line 
 				laserLine.SetPosition (1, transform.InverseTransformPoint(hit.point));
+
+				if(hit.collider.tag == "Enemy")
+				{
+					var enemy = hit.transform.gameObject;
+					enemy.GetComponent<EnemyController>().destroy();
+				}
 //
 //				// Get a reference to a health script attached to the collider we hit
 //				ShootableBox health = hit.collider.GetComponent<ShootableBox>();
@@ -61,12 +67,6 @@ public int gunDamage = 1;											// Set the number of hitpoints that this gun
 //					health.Damage (gunDamage);
 //				}
 //
-//				// Check if the object we hit has a rigidbody attached
-//				if (hit.rigidbody != null)
-//				{
-//					// Add force to the rigidbody we hit, in the direction from which it was hit
-//					hit.rigidbody.AddForce (-hit.normal * hitForce);
-//				}
 			}
 			else
 			{
