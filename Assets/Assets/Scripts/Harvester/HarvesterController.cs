@@ -50,6 +50,10 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	
 	// Update is called once per frame
 	void Update () {
+		if (this.state != State.Attacked) {
+			this.stopAlarm ();
+		}
+
 		if (this.isKilled() && this.state != State.Destroyed) {
 			this.state = State.Destroyed;
 			(this.strategies [this.state] as DestroyStrategy).showExplosion = false;
@@ -204,6 +208,6 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		this.alarmPower = 0;
 		LensFlare lensFlare = this.GetComponent<LensFlare> ();
 
-		lensFlare.brightness = alarmPower;
+		lensFlare.brightness = this.alarmPower;
 	}
 }
