@@ -240,6 +240,7 @@ namespace AClockworkBerry
                         styleText.normal.textColor = MessageColor;
                         break;
                 }
+				styleText.wordWrap = true;
 
                 GUILayout.Label(m.Message, styleText);
             }
