@@ -8,13 +8,13 @@ public class LaserGun : MonoBehaviour {
 	public float fireRate = 0.25f;										// Number in seconds which controls how often the player can fire
 	public float weaponRange = 500f;										// Distance in Unity units over which the player can fire
 	public float hitForce = 100f;										// Amount of force which will be added to objects with a rigidbody shot by the player
+	public GameObject sparkles;
 
 	private Camera fpsCam;												// Holds a reference to the first person camera
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);	// WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
 	private AudioSource gunAudio;										// Reference to the audio source which will play our shooting sound effect
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
-	private GameLog log;
 
 
 	void Start () 
@@ -27,8 +27,6 @@ public class LaserGun : MonoBehaviour {
 
 		// Get and store a reference to our Camera by searching this GameObject and its parents
 		fpsCam = GetComponent<Camera>();
-
-		log = fpsCam.GetComponent<GameLog>();
 	}
 	
 
@@ -58,18 +56,19 @@ public class LaserGun : MonoBehaviour {
 				{
 					var enemy = hit.transform.gameObject;
 					enemy.GetComponent<EnemyController>().destroy();
-					log.NewActivity("Slime destroyed");
+//					log.NewActivity("Slime destroyed");
 				}
 				HarvesterController harvester = hit.collider.gameObject.GetComponent<HarvesterController> ();
 
 				if ((harvester != null) && (!harvester.isAttacked ())) {
 					harvester.kill ();
-					log.NewActivity("You destroyed an harvester!");
+//					log.NewActivity("You destroyed an harvester!");
 				}
 
 				Sylo sylo = hit.collider.gameObject.GetComponent<Sylo> ();
 
 				if (sylo != null) {
+					LaserGun.Instantiate(this.sparkles, hit.point, hit.transform.rotation);
 					sylo.getDamage();
 				}
 //

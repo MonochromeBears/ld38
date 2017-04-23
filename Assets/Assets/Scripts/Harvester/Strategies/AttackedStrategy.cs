@@ -5,7 +5,6 @@ using Enemy;
 public class AttackedStrategy: StrategyInterface
 {
 	public EnemyController enemy;
-	private GameLog log;
 
 	public void action(HarvesterController harvester) {
 		harvester.transform.position = this.enemy.transform.position;

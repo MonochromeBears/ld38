@@ -14,6 +14,8 @@ namespace Enemy
 		public float speed = 5;
 		public float rotationSpeed = 1;
 
+		private float duration = 0f;
+		private float limit = 1f;
 		private HarvesterController takenHarvester;
 		private EnemyState state = EnemyState.Idle;
 		private AudioSource deathSound;
@@ -34,6 +36,13 @@ namespace Enemy
 		
 		// Update is called once per frame
 		void Update () {
+			this.duration += Time.deltaTime;
+
+			if (this.state == EnemyState.Move && this.duration >= this.limit) {
+				this.duration = 0f;
+				this.goToIdle();
+			}
+
 			this.strategies [this.state].move (this);
 		}
 
