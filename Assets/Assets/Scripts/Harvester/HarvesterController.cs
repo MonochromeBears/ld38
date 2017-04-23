@@ -21,6 +21,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	private float deathTime;
 	private Vector3 oldPosition;
 
+	private AudioSource harvesterExplosion;
+
 	private State state = State.Idle;
 
 	private Dictionary<State, StrategyInterface> strategies;
@@ -29,6 +31,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	void Start () {
 		this.GetComponent<Rigidbody> ().freezeRotation = true;
 		this.deathTime = this.maxDeathTime;
+
+		harvesterExplosion = GetComponent<AudioSource>();
 
 		this.strategies = new Dictionary<State, StrategyInterface>() {
 			{ State.Idle, new IdleStrategy() },
@@ -157,6 +161,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 		this.state = State.Destroyed;
 		(this.strategies [this.state] as DestroyStrategy).showExplosion = true;
 		(this.strategies [this.state] as DestroyStrategy).explosion = this.explosion;
+		harvesterExplosion.Play ();
 	}
 
 	public bool isFull() {
