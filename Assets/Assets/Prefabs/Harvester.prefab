@@ -338,5 +338,5 @@ LensFlare:
   m_FadeSpeed: 1
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967289
   m_Directional: 0
