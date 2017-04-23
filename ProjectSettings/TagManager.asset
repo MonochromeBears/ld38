@@ -8,6 +8,7 @@ TagManager:
   - resource
   - harvester
   - score
+  - h_count
   layers:
   - Default
   - TransparentFX
