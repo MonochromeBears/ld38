@@ -612,6 +612,82 @@ Prefab:
       propertyPath: sylo
       value: 
       objectReference: {fileID: 628972608}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 30ed459e647f945efa58768dee254257,
+        type: 3}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_Text
+      value: Collect all resources
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: ce1c56af902bc417289a1768c99a8ca4, type: 2}
+    - target: {fileID: 224810266477565186, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 224810266477565186, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -38
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362244306676104, guid: 3c5d0cead171f4de59e73b4ab21ba942,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c5d0cead171f4de59e73b4ab21ba942, type: 2}
   m_IsPrefabParent: 0
