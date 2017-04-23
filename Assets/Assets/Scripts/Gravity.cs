@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
  
 public class Gravity : MonoBehaviour {
- 
     public GameObject[] objects;
     public GameObject planet;
  

@@ -47,6 +47,5 @@ public class ShowPanels : MonoBehaviour {
 	{
 		pausePanel.SetActive (false);
 		optionsTint.SetActive(false);
-
 	}
 }
