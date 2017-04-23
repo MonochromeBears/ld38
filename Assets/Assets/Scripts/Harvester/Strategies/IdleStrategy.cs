@@ -32,6 +32,7 @@ public class IdleStrategy: StrategyInterface
 	}
 
 	protected bool findSylo(HarvesterController harvester, out MonoBehaviour target) {
+		harvester.stopAlarm ();
 		bool found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
 
 		if (found) {
