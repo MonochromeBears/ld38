@@ -57,5 +57,8 @@ public class Pause : MonoBehaviour {
 		showPanels.HidePausePanel ();
 	}
 
-
+	public void reset() {
+		this.UnPause ();
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }
