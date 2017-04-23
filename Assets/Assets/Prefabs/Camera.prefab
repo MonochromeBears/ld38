@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111628da5147422d90f735509d66229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLines: 8
+  maxLines: 16
 --- !u!120 &120185293948174870
 LineRenderer:
   m_ObjectHideFlags: 1
