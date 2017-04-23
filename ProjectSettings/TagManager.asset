@@ -9,6 +9,7 @@ TagManager:
   - harvester
   - score
   - h_count
+  - aim
   layers:
   - Default
   - TransparentFX

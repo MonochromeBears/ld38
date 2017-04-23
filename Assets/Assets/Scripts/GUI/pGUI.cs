@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class pGUI : MonoBehaviour {
 	public Sylo sylo;
@@ -20,6 +21,10 @@ public class pGUI : MonoBehaviour {
 
 		if (hasNoHarvesters || isSyloDestroyed) {
 			this.transform.Find ("GameOver").gameObject.SetActive (true);
+			GameObject.FindWithTag ("score").gameObject.SetActive (false);
+			GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
+			GameObject.FindWithTag ("aim").gameObject.SetActive (false);
+			GameObject.FindWithTag ("logger").gameObject.SetActive (false);
 		}
 
 		if (this.sylo != null) {
