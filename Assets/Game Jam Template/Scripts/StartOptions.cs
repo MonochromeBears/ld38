@@ -94,6 +94,7 @@ public class StartOptions : MonoBehaviour {
 
 		//Load the selected scene, by scene index number in build settings
 		SceneManager.LoadScene (sceneToStart);
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	public void HideDelayed()
@@ -117,7 +118,6 @@ public class StartOptions : MonoBehaviour {
 		//Set trigger for animator to start animation fading out Menu UI
 		animMenuAlpha.SetTrigger ("fade");
 		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
-		Debug.Log ("Game started in same scene! Put your game starting stuff here.");
 	}
 
 

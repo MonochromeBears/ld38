@@ -570,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &165188
 GameObject:
   m_ObjectHideFlags: 1
@@ -878,7 +878,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198714}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24324684, guid: 0ac7fb39e445048d89688f69c2a1839a,
     type: 2}
@@ -2512,7 +2512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToStart: 1
-  changeScenes: 0
+  changeScenes: 1
   changeMusicOnStart: 0
   inMainMenu: 1
   animColorFade: {fileID: 9520878}
@@ -3207,10 +3207,10 @@ RectTransform:
   m_Father: {fileID: 22434976}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.91907, y: -71.4948}
+  m_SizeDelta: {x: 155.83813, y: 26.997917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22413724
 RectTransform:
@@ -3778,7 +3778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36600003, y: 0.38622645}
   m_AnchorMax: {x: 0.62012327, y: 0.611}
-  m_AnchoredPosition: {x: 0.00000047683716, y: 0.73498535}
+  m_AnchoredPosition: {x: 0, y: 0.73498535}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22470916
@@ -3926,10 +3926,10 @@ RectTransform:
   m_Father: {fileID: 22434976}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.91907, y: -42.496876}
+  m_SizeDelta: {x: 155.83813, y: 26.997917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22492326
 RectTransform:
@@ -4019,10 +4019,10 @@ RectTransform:
   m_Father: {fileID: 22434976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.91907, y: -13.498959}
+  m_SizeDelta: {x: 155.83813, y: 26.997917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &22504516
 CanvasGroup:
