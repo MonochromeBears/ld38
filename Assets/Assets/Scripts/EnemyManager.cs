@@ -8,12 +8,12 @@ public class EnemyManager : MonoBehaviour
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
     private float currentTime = 0f;
-    private float duration = 30f;
+    private float duration = 0.1f;
 
     void Start ()
     {
-        // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        Spawn();
+        int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+        Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 		StartSpawning();
     }
 
@@ -31,8 +31,9 @@ public class EnemyManager : MonoBehaviour
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     
-        if (this.currentTime > this.duration) {
+        if (this.currentTime > this.duration && this.spawnTime >= this.step) {
             CancelInvoke("Spawn");
+            this.currentTime = 0f;
             this.spawnTime -= this.step;
             StartSpawning();
         }
