@@ -60,9 +60,4 @@ public class CameraController : MonoBehaviour {
 
 		return dist;
 	}
-
-	public void OnGUI() {
-//		GUI.color = Color.black;
-		GUI.DrawTexture (new Rect (Screen.width / 2 - 256, Screen.height / 2 - 182, 512, 364), this.aimTexture);
-	}
 }
