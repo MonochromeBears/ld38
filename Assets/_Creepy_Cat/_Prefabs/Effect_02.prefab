@@ -99,7 +99,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.8897059, g: 0.60185987, b: 0.17009084, a: 1}
-  m_Intensity: 2
+  m_Intensity: 5
   m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -678,7 +678,7 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       minMaxState: 0
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3065,7 +3065,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
