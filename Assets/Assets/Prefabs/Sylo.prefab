@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   resource: {fileID: 1064622566991154, guid: 79aa82622665d4fc2a52b107de56e9b5, type: 2}
+  explosion: {fileID: 100002, guid: 31e6f3c4f34ae473b95b228cd8e43f44, type: 2}
