@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class pGUI : MonoBehaviour {
 	public Sylo sylo;
 
+	private bool isGameOver = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,11 +17,16 @@ public class pGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (this.isGameOver) {
+			return;
+		}
+
 		var harvestersLength = GameObject.FindObjectsOfType<HarvesterController> ().Length;
 		bool hasNoHarvesters = harvestersLength == 0;
 		bool isSyloDestroyed = GameObject.FindObjectsOfType<Sylo>().Length == 0;
 
-		if (hasNoHarvesters || isSyloDestroyed) {
+		if ((hasNoHarvesters || isSyloDestroyed)) {
+			this.isGameOver = true;
 			this.transform.Find ("GameOver").gameObject.SetActive (true);
 			GameObject.FindWithTag ("score").gameObject.SetActive (false);
 			GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
