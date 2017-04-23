@@ -34,7 +34,7 @@ public class pGUI : MonoBehaviour {
 			GameObject.FindWithTag ("logger").gameObject.SetActive (false);
 		}
 
-		if (this.sylo != null) {
+		if (this.sylo != null && !this.isGameOver) {
 			var score = GameObject.FindWithTag ("score").GetComponent<Text>();
 			score.text = 
 				string.Format ("Score: {0}", this.sylo.getCollected ());

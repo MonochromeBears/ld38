@@ -36,9 +36,9 @@ namespace Enemy
 
 			deathSound = GetComponent<AudioSource>();
 
-			if (this.startPoint != null) {
-				this.moveToPoint (this.startPoint);
-			}
+//			if (this.startPoint != null) {
+//				this.moveToPoint (this.startPoint);
+//			}
 		}
 		
 		// Update is called once per frame
