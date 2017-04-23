@@ -228,6 +228,8 @@ MonoBehaviour:
   weaponRange: 1000
   hitForce: 100
   sparkles: {fileID: 100000, guid: 13e45f77d93ff4995b907484ed0f0b26, type: 2}
+  hitLightPrefab: {fileID: 1653463213692798, guid: b2d18c5b9e1e840c48efac77c45e99ed,
+    type: 2}
 --- !u!114 &114861800212732174
 MonoBehaviour:
   m_ObjectHideFlags: 1

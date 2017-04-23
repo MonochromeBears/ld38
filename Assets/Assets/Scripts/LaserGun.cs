@@ -9,6 +9,7 @@ public class LaserGun : MonoBehaviour {
 	public float weaponRange = 500f;										// Distance in Unity units over which the player can fire
 	public float hitForce = 100f;										// Amount of force which will be added to objects with a rigidbody shot by the player
 	public GameObject sparkles;
+	public GameObject hitLightPrefab;
 
 	private Camera fpsCam;												// Holds a reference to the first person camera
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);	// WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
@@ -16,10 +17,12 @@ public class LaserGun : MonoBehaviour {
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
 	private GameLog log;
+	private HitLight hitLightInstance;
 
 
 	void Start () 
 	{
+		this.hitLightInstance = LaserGun.Instantiate(this.hitLightPrefab).GetComponent<HitLight>();
 		// Get and store a reference to our LineRenderer component
 		laserLine = GetComponent<LineRenderer>();
 
@@ -74,6 +77,9 @@ public class LaserGun : MonoBehaviour {
 					LaserGun.Instantiate(this.sparkles, hit.point, hit.transform.rotation);
 					sylo.getDamage();
 				}
+
+				Vector3 lightPoint = fpsCam.WorldToViewportPoint(hit.point) + new Vector3(0, 0,-0.25f);
+				this.hitLightInstance.summon(fpsCam.ViewportToWorldPoint(lightPoint));
 //
 //				// Get a reference to a health script attached to the collider we hit
 //				ShootableBox health = hit.collider.GetComponent<ShootableBox>();
