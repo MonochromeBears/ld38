@@ -30,6 +30,6 @@ public class pGUI : MonoBehaviour {
 
 		var hCount = GameObject.FindWithTag ("h_count").GetComponent<Text>();
 		hCount.text = 
-			string.Format ("Harvesters: {0}", harvestersLength);
+			string.Format ("Harvesters left: {0}", harvestersLength);
 	}
 }
