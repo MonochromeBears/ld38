@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb76f10235dec4825900332666ad9dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 0.5
   weaponRange: 1000
   hitForce: 100
 --- !u!114 &114861800212732174
