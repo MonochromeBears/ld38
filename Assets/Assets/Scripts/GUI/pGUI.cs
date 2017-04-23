@@ -11,7 +11,9 @@ public class pGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameObject.FindObjectsOfType<HarvesterController> ().Length == 0) {
+		bool hasNoHarvesters = GameObject.FindObjectsOfType<HarvesterController> ().Length == 0;
+		bool isSyloDestroyed = GameObject.FindObjectsOfType<Sylo>()[0].damage == 0;
+		if (hasNoHarvesters || isSyloDestroyed) {
 			this.transform.Find ("GameOver").gameObject.SetActive (true);
 		}
 	}
