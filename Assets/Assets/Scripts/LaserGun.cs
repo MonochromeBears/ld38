@@ -66,6 +66,12 @@ public class LaserGun : MonoBehaviour {
 					harvester.kill ();
 					log.NewActivity("You destroyed an harvester!");
 				}
+
+				Sylo sylo = hit.collider.gameObject.GetComponent<Sylo> ();
+
+				if (sylo != null) {
+					sylo.getDamage();
+				}
 //
 //				// Get a reference to a health script attached to the collider we hit
 //				ShootableBox health = hit.collider.GetComponent<ShootableBox>();

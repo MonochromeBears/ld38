@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sylo : MonoBehaviour {
-	public int damage = 100;
+	public int damage = 30;
 	public GameObject resource;
 
 	private int capacity = 0;
@@ -14,7 +14,13 @@ public class Sylo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (this.damage <= 0) {
+			Debug.Log("You are an idiot");
+		}
+	}
+
+	public void getDamage() {
+		this.damage -= 10;
 	}
 
 	public void load(int capacity) {
