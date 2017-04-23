@@ -10,6 +10,7 @@ namespace Enemy
 		public void move(EnemyController enemy) {
 			if (this.target.isAttacked() || this.target.isKilled()) {
 				enemy.goToIdle();
+
 				return;
 			}
 
