@@ -22,6 +22,7 @@ public class Sylo : MonoBehaviour {
 			this.animationDuration -= Time.deltaTime;
 
 			if (this.animationDuration <= 0) {
+				Debug.LogError ("You destroy the sylo depot!!!");
 				Sylo.Destroy(this.anim);
 				Sylo.Destroy(this.gameObject);
 			}
@@ -37,6 +38,7 @@ public class Sylo : MonoBehaviour {
 
 	public void getDamage() {
 		this.damage -= 10;
+		Debug.LogError ("Stop attack sylo depot!!!");
 	}
 
 	public void load(int capacity) {

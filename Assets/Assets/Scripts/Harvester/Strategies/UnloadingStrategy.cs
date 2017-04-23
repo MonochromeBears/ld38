@@ -5,7 +5,6 @@ public class UnloadingStrategy: StrategyInterface
 	public Sylo sylo;
 
 	public void action(HarvesterController harvester) {
-		UnityEngine.Debug.Log ("Unloading: " + harvester.getCapacity());
 		if (this.sylo == null) {
 			return;
 		}
