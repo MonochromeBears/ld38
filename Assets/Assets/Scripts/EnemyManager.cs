@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
     private float currentTime = 0f;
-    private float duration = 0.1f;
+    private float duration = 20f;
 
     void Start ()
     {
@@ -22,9 +22,12 @@ public class EnemyManager : MonoBehaviour
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
+    void Update() {
+        this.currentTime += Time.deltaTime;
+    }
+
     void Spawn ()
     {
-        this.currentTime += Time.deltaTime;
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
