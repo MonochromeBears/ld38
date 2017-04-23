@@ -24,6 +24,10 @@ public class Sylo : MonoBehaviour {
 	}
 
 	public void load(int capacity) {
-		this.capacity = capacity;
+		this.capacity += capacity;
+	}
+
+	public int getCollected() {
+		return this.capacity;
 	}
 }
