@@ -790,11 +790,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4910358663129298, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4910358663129298, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4910358663129298, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
       propertyPath: m_LocalRotation.w
@@ -803,49 +803,6 @@ Prefab:
     - target: {fileID: 4910358663129298, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 582d2cfd4842c954d82eba0d037da054, type: 2}
-    - target: {fileID: 1685483777987898, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281882785508962, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_LightProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_ReflectionProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23047330824161378, guid: 9a5afc95347b84ad0b97401679db5cbb,
-        type: 2}
-      propertyPath: m_MotionVectors
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a5afc95347b84ad0b97401679db5cbb, type: 2}
