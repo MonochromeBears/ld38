@@ -12,6 +12,8 @@ namespace Enemy
 
 			if (!this.target.isAttacked()) {
 				this.target.attackedByEnemy(enemy);
+
+				Debug.LogErrorFormat ("{0} attacked by slime", this.target.name);
 			}
 			
 			Vector3 motion = Vector3.MoveTowards (
