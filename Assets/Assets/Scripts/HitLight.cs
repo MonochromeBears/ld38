@@ -31,7 +31,6 @@ public class HitLight : MonoBehaviour {
 	}
 
 	public void summon(Vector3 hitPoint) {
-		Debug.Log(hitPoint);
 		this.duration = 0f;
 		this.summoned = true;
 		this.transform.position = hitPoint;
