@@ -18,7 +18,6 @@ namespace Enemy
 
 			this.animationDuration -= Time.deltaTime;
 
-			Debug.Log(this.animationDuration);	
 			if (this.animationDuration <= 0) {
 				EnemyController.Destroy(this.anim);
 				EnemyController.Destroy(enemy.gameObject);

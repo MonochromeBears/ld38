@@ -174,3 +174,4 @@ MonoBehaviour:
   collectSpeed: 1
   unloadingSpeed: 1
   maxDeathTime: 2
+  explosion: {fileID: 100002, guid: f7efb0d9df2264096af57128df85dddb, type: 2}

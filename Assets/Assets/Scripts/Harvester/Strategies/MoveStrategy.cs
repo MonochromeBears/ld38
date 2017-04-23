@@ -6,14 +6,29 @@ public class MoveStrategy: StrategyInterface
 	public MonoBehaviour target;
 
 	public void action(HarvesterController harvester) {
+		if (this.target == null) {
+			harvester.stay ();
+
+			return;
+		}
+
 		Vector3 motion = Vector3.MoveTowards (
 			harvester.transform.position, 
 			this.target.transform.position, 
 			Time.deltaTime * harvester.speed
 		);
 
-		harvester.transform.position = motion;
+
 		var earth = GameObject.Find ("Sphere");
-		harvester.transform.LookAt (this.target.transform.position, earth.transform.position - harvester.transform.position);
+		Vector3 sphereUp = harvester.transform.position - earth.transform.position;
+		harvester.transform.LookAt (motion, sphereUp);
+		harvester.transform.rotation = Quaternion.FromToRotation(
+			harvester.transform.up,
+			harvester.transform.position - earth.transform.position) * harvester.transform.rotation;
+
+		harvester.setOldPosition (harvester.transform.position);
+
+		harvester.transform.position = motion;
+
 	}
 }

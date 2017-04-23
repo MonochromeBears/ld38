@@ -15,9 +15,11 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	public int collectSpeed = 1;
 	public int unloadingSpeed = 1;
 	public float maxDeathTime = 2;
+	public GameObject explosion;
 
 	private int capacity = 0;
 	private float deathTime;
+	private Vector3 oldPosition;
 
 	private State state = State.Idle;
 
@@ -33,17 +35,15 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 			{ State.Move, new MoveStrategy() },
 			{ State.Collect, new CollectStrategy() },
 			{ State.Attacked, new AttackedStrategy() },
-			{ State.Unloading, new UnloadingStrategy() }
+			{ State.Unloading, new UnloadingStrategy() },
+			{ State.Destroyed, new DestroyStrategy() }
 		};
+
+		this.oldPosition = this.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (this.isKilled ()) {
-			this.state = State.Destroyed;
-			Destroy (this.gameObject);
-		}
-
 		if (this.strategies.ContainsKey (this.state)) {
 			this.strategies [this.state].action (this);
 		}
@@ -137,6 +137,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 		if (this.deathTime < 0) {
 			this.deathTime = 0;
+			this.state = State.Destroyed;
+			(this.strategies [this.state] as DestroyStrategy).showExplosion = false;
 		}
 
 		Debug.Log ("Time to death: " + this.deathTime);
@@ -147,6 +149,9 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void kill() {
 		this.deathTime = 0;
+		this.state = State.Destroyed;
+		(this.strategies [this.state] as DestroyStrategy).showExplosion = true;
+		(this.strategies [this.state] as DestroyStrategy).explosion = this.explosion;
 	}
 
 	public bool isFull() {
@@ -163,5 +168,13 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public int getCapacity() {
 		return this.capacity;
+	}
+
+	public Vector3 getOldPosition() {
+		return this.oldPosition;
+	}
+
+	public void setOldPosition(Vector3 position) {
+		this.oldPosition = position;
 	}
 }
