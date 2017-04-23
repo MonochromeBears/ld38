@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Enemy;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class EnemyManager : MonoBehaviour
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+		GameObject enemyObject = Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     
+		EnemyController e = enemyObject.GetComponent<EnemyController> ();
+
+		e.startPoint = Random.onUnitSphere * 5.0f;
         spawnPoints[spawnPointIndex].gameObject.GetComponent<Teleport>().summon();
 
         if (this.currentTime > this.duration && this.spawnTime >= this.step) {

@@ -28,4 +28,8 @@ public class Global : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
+
+	void OnDestroy() {
+		Debug.Log ("on destroy");
+	}
 }

@@ -6,7 +6,7 @@ namespace Enemy
 {
 	public enum EnemyState
 	{
-		Idle, Move, Attack, Destroyed
+		Idle, Move, Attack, Destroyed, MoveToPoint
 	}
 
 	public class EnemyController : MonoBehaviour {
@@ -20,6 +20,8 @@ namespace Enemy
 		private EnemyState state = EnemyState.Idle;
 		private AudioSource deathSound;
 
+		public Vector3 startPoint;
+
 		private Dictionary<EnemyState, StrategyInterface> strategies;
 
 		// Use this for initialization
@@ -28,10 +30,15 @@ namespace Enemy
 				{ EnemyState.Idle, new IdleStrategy() },
 				{ EnemyState.Move, new MoveStrategy() },
 				{ EnemyState.Attack, new AttackStrategy() },
-				{ EnemyState.Destroyed, new DestroyStrategy() }
+				{ EnemyState.Destroyed, new DestroyStrategy() },
+				{ EnemyState.MoveToPoint, new MoveToPointStrategy() }
 			};
 
 			deathSound = GetComponent<AudioSource>();
+
+			if (this.startPoint != null) {
+				this.moveToPoint (this.startPoint);
+			}
 		}
 		
 		// Update is called once per frame
@@ -49,6 +56,11 @@ namespace Enemy
 		public void moveToHarvester(HarvesterController harvester) {
 			this.state = EnemyState.Move;
 			(this.strategies [this.state] as MoveStrategy).target = harvester;
+		}
+
+		public void moveToPoint(Vector3 target) {
+			this.state = EnemyState.MoveToPoint;
+			(this.strategies [this.state] as MoveToPointStrategy).target = target;
 		}
 
 		public void attackHarvester(HarvesterController harvester) {
