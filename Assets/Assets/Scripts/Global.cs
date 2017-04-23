@@ -5,17 +5,22 @@ using UnityEngine;
 public class Global : MonoBehaviour {
 	public static bool afterStart = true;
 	public pGUI gui;
+	public static bool showMenu = true;
 
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad(this);
 
+		Debug.Log (Global.afterStart);
+
 		if (Global.afterStart) {
 			var ui = GameObject.Find ("UI");
-			var startMenu = ui.GetComponent<ShowPanels>();
+			var startMenu = ui.GetComponent<ShowPanels> ();
 
 			this.gui.gameObject.SetActive (false);
-			startMenu.ShowMenu();
+			startMenu.ShowMenu ();
+		} else {
+			Global.showMenu = false;
 		}
 
 		Global.afterStart = false;
