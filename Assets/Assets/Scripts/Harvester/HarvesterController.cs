@@ -63,6 +63,10 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	void checkCollision(Collider other) {
+		if (this.state == State.Destroyed) {
+			return;
+		}
+
 		if (!this.isFull ()) {
 			Resource resource = other.gameObject.GetComponent<Resource> ();
 
