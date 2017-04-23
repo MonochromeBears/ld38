@@ -34,6 +34,8 @@ public class EnemyManager : MonoBehaviour
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     
+        spawnPoints[spawnPointIndex].gameObject.GetComponent<Teleport>().summon();
+
         if (this.currentTime > this.duration && this.spawnTime >= this.step) {
             CancelInvoke("Spawn");
             this.currentTime = 0f;

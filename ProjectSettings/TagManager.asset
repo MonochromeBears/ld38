@@ -10,6 +10,7 @@ TagManager:
   - score
   - h_count
   - aim
+  - logger
   layers:
   - Default
   - TransparentFX
