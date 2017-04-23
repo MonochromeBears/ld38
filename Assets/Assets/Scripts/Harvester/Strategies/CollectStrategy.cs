@@ -14,6 +14,5 @@ public class CollectStrategy: StrategyInterface
 
 		int collected = this.resource.collect (harvester.collectSpeed);
 		harvester.collect (collected);
-		//Debug.Log ("Collected: " + harvester.getCapacity ());
 	}
 }

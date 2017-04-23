@@ -19,16 +19,34 @@ public class IdleStrategy: StrategyInterface
 				harvester, out target
 			);
 		} else {
-			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
+			found = this.findSylo(harvester, out target);
 		}
 
 		if (!found) {
-			found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
+			found = this.findSylo(harvester, out target);
 		}
 
 		if (found) {
 			harvester.moveTo (target);
 		}
+	}
+
+	protected bool findSylo(HarvesterController harvester, out MonoBehaviour target) {
+		bool found = this.tryAndFindNearest (Resources.FindObjectsOfTypeAll<Sylo> (), harvester, out target);
+
+		if (found) {
+			Debug.LogWarningFormat (
+				"{0} collect {1} amount of resources and move to {2}.",
+				harvester.name, harvester.getCapacity (), target.name
+			);
+		} else {
+			Debug.LogWarningFormat (
+				"{0} collect {1} amount of resources but cannot find sylo depot.",
+				harvester.name, harvester.getCapacity ()
+			);
+		}
+
+		return found;
 	}
 
 	protected bool tryAndFindNearest(MonoBehaviour[] objects, MonoBehaviour from, out MonoBehaviour closestObject) {

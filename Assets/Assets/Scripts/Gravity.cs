@@ -9,9 +9,10 @@ public class Gravity : MonoBehaviour {
  
     public float gravitationalPull;
  
-    // void Start() {
+     void Start() {
+		Debug.Log ("Wellcome");
     //     objects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-    // }
+     }
 
     void FixedUpdate() {
         objects = UnityEngine.Object.FindObjectsOfType<GameObject>();

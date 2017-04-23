@@ -11,7 +11,6 @@ public class Resource : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.capacity = Random.Range (this.min, this.max);
-		//Debug.Log ("Spawn: " + this.capacity);
 	}
 	
 	// Update is called once per frame

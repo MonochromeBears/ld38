@@ -16,7 +16,6 @@ public class LaserGun : MonoBehaviour {
 	private AudioSource gunAudio;										// Reference to the audio source which will play our shooting sound effect
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
-	private GameLog log;
 	private HitLight hitLightInstance;
 
 
@@ -31,8 +30,6 @@ public class LaserGun : MonoBehaviour {
 
 		// Get and store a reference to our Camera by searching this GameObject and its parents
 		fpsCam = GetComponent<Camera>();
-
-		log = fpsCam.GetComponent<GameLog>();
 	}
 	
 
@@ -62,13 +59,13 @@ public class LaserGun : MonoBehaviour {
 				{
 					var enemy = hit.transform.gameObject;
 					enemy.GetComponent<EnemyController>().destroy();
-					log.NewActivity("Slime destroyed");
+//					log.NewActivity("Slime destroyed");
 				}
 				HarvesterController harvester = hit.collider.gameObject.GetComponent<HarvesterController> ();
 
 				if ((harvester != null) && (!harvester.isAttacked ())) {
 					harvester.kill ();
-					log.NewActivity("You destroyed an harvester!");
+//					log.NewActivity("You destroyed an harvester!");
 				}
 
 				Sylo sylo = hit.collider.gameObject.GetComponent<Sylo> ();
