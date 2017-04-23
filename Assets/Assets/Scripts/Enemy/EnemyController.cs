@@ -69,7 +69,7 @@ namespace Enemy
 
 		void OnCollisionEnter (Collision col)
 		{
-			if (this.hasTakenHarvester()) {
+			if (this.hasTakenHarvester() || this.state == EnemyState.Destroyed) {
 				return;
 			}
 			// if(col.gameObject.name == "prop_powerCube")
