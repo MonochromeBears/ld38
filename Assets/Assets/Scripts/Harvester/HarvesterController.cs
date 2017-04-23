@@ -12,6 +12,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	public float speed = 5;
 	public float rotationSpeed = 1;
 	public int maxCapacity = 100;
+	public  float maxAlarmPower = 2;
 	public int collectSpeed = 1;
 	public int unloadingSpeed = 1;
 	public float maxDeathTime = 2;
@@ -26,6 +27,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	private State state = State.Idle;
 
 	private Dictionary<State, StrategyInterface> strategies;
+	private float alarmPower = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +50,10 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	
 	// Update is called once per frame
 	void Update () {
+		if (this.state != State.Attacked) {
+			this.stopAlarm ();
+		}
+
 		if (this.isKilled() && this.state != State.Destroyed) {
 			this.state = State.Destroyed;
 			(this.strategies [this.state] as DestroyStrategy).showExplosion = false;
@@ -146,6 +152,16 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	}
 
 	public bool damage() {
+		LensFlare lensFlare = this.GetComponent<LensFlare> ();
+
+		this.alarmPower += Time.deltaTime;
+
+		if (this.alarmPower >= this.maxAlarmPower) {
+			this.alarmPower = 0;
+		}
+
+		lensFlare.brightness = alarmPower;
+
 		this.deathTime -= Time.deltaTime;
 
 		if (this.deathTime < 0) {
@@ -186,5 +202,12 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public void setOldPosition(Vector3 position) {
 		this.oldPosition = position;
+	}
+
+	public void stopAlarm() {
+		this.alarmPower = 0;
+		LensFlare lensFlare = this.GetComponent<LensFlare> ();
+
+		lensFlare.brightness = this.alarmPower;
 	}
 }
