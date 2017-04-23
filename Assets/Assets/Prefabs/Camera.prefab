@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 120185293948174870}
   - component: {fileID: 114861800212732174}
   - component: {fileID: 114136822428793930}
+  - component: {fileID: 114719008524719704}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -213,6 +214,18 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   isActivated: 0
   aimTexture: {fileID: 2800000, guid: 27351f384dd5f432a934cd3e7a854e9e, type: 3}
+--- !u!114 &114719008524719704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950264729808232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294e0ddb6dd4c44809edaf103ff180ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 96
 --- !u!114 &114796235066802774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,7 +268,7 @@ LineRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22996b8a746cdaa4a87e4f7efe177c35, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
