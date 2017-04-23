@@ -44,6 +44,11 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 	
 	// Update is called once per frame
 	void Update () {
+		if (this.isKilled() && this.state != State.Destroyed) {
+			this.state = State.Destroyed;
+			(this.strategies [this.state] as DestroyStrategy).showExplosion = false;
+		}
+
 		if (this.strategies.ContainsKey (this.state)) {
 			this.strategies [this.state].action (this);
 		}
@@ -137,11 +142,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 		if (this.deathTime < 0) {
 			this.deathTime = 0;
-			this.state = State.Destroyed;
-			(this.strategies [this.state] as DestroyStrategy).showExplosion = false;
 		}
-
-		Debug.Log ("Time to death: " + this.deathTime);
 
 		return this.isKilled ();
 	}

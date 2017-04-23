@@ -7,7 +7,10 @@ namespace Enemy
 	public class IdleStrategy: StrategyInterface
 	{
 		public void move(EnemyController enemy) {
-			HarvesterController[] harvesters = Resources.FindObjectsOfTypeAll<HarvesterController> ();
+			HarvesterController[] harvesters = Resources
+				.FindObjectsOfTypeAll<HarvesterController>()
+				.Where(r => !r.isAttacked())
+				.ToArray();
 
 			if (harvesters.Count() == 0) {
 				return;
@@ -17,9 +20,6 @@ namespace Enemy
 			float minDistance = Vector3.Distance(enemy.transform.position, closestHarvester.transform.position);
 
 			foreach (HarvesterController harvester in harvesters) {
-				if (harvester.isAttacked()) {
-					continue;
-				}
 
 				float distance = Vector3.Distance (enemy.transform.position, closestHarvester.transform.position);
 
