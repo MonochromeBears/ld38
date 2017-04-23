@@ -246,10 +246,6 @@ Prefab:
       propertyPath: m_Name
       value: Harvester (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 1064622566991154, guid: 79aa82622665d4fc2a52b107de56e9b5, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79aa82622665d4fc2a52b107de56e9b5, type: 2}
   m_IsPrefabParent: 0
@@ -466,6 +462,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82510782518899254, guid: e971e8956499d4d27b7f90b0aa600074,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24324684, guid: 0ac7fb39e445048d89688f69c2a1839a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e971e8956499d4d27b7f90b0aa600074, type: 2}
   m_IsPrefabParent: 0
@@ -890,7 +892,8 @@ AudioSource:
   m_GameObject: {fileID: 2006834879}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24301952, guid: 0ac7fb39e445048d89688f69c2a1839a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 194dc7177daa74473a6817b709ffd49c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
