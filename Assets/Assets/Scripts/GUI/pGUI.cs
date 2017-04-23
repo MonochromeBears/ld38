@@ -32,6 +32,7 @@ public class pGUI : MonoBehaviour {
 			GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
 			GameObject.FindWithTag ("aim").gameObject.SetActive (false);
 			GameObject.FindWithTag ("logger").gameObject.SetActive (false);
+			return;
 		}
 
 		if (this.sylo != null && !this.isGameOver) {
