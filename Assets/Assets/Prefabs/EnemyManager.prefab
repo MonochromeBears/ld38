@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1210397836906264, guid: d4bb65af42d854e3cbc4ac4636d81b4f, type: 2}
   spawnTime: 3
+  step: 0.5
   spawnPoints:
   - {fileID: 4452827669777204}
   - {fileID: 4586594823443876}
