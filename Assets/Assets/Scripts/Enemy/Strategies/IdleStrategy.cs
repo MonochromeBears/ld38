@@ -9,7 +9,7 @@ namespace Enemy
 		public void move(EnemyController enemy) {
 			HarvesterController[] harvesters = Resources
 				.FindObjectsOfTypeAll<HarvesterController>()
-				.Where(r => !r.isAttacked())
+				.Where(r => !r.isAttacked() && !r.isKilled())
 				.ToArray();
 
 			if (harvesters.Count() == 0) {
