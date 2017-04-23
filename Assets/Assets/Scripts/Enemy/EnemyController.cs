@@ -16,6 +16,7 @@ namespace Enemy
 
 		private HarvesterController takenHarvester;
 		private EnemyState state = EnemyState.Idle;
+		private AudioSource deathSound;
 
 		private Dictionary<EnemyState, StrategyInterface> strategies;
 
@@ -27,6 +28,8 @@ namespace Enemy
 				{ EnemyState.Attack, new AttackStrategy() },
 				{ EnemyState.Destroyed, new DestroyStrategy() }
 			};
+
+			deathSound = GetComponent<AudioSource>();
 		}
 		
 		// Update is called once per frame
@@ -57,6 +60,7 @@ namespace Enemy
 		public void destroy() {
 			this.state = EnemyState.Destroyed;
 			(this.strategies [this.state] as DestroyStrategy).explosion = this.explosion;
+			this.deathSound.Play ();
 		}
 
 		public float getSpeed() {
