@@ -38,6 +38,7 @@ public class Pause : MonoBehaviour {
 
 	public void DoPause()
 	{
+		Global.showMenu = true;
 		//Set isPaused to true
 		isPaused = true;
 		//Set time.timescale to 0, this will cause animations and physics to stop updating
@@ -55,6 +56,7 @@ public class Pause : MonoBehaviour {
 		Time.timeScale = 1;
 		//call the HidePausePanel function of the ShowPanels script
 		showPanels.HidePausePanel ();
+		Global.showMenu = false;
 	}
 
 	public void reset() {

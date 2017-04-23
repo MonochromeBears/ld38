@@ -11,7 +11,6 @@ public class Global : MonoBehaviour {
 	void Start () {
 		DontDestroyOnLoad(this);
 
-		Debug.Log (Global.afterStart);
 
 		if (Global.afterStart) {
 			var ui = GameObject.Find ("UI");
