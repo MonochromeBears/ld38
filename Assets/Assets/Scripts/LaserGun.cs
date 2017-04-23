@@ -54,11 +54,16 @@ public class LaserGun : MonoBehaviour {
 				// Set the end position for our laser line 
 				laserLine.SetPosition (1, transform.InverseTransformPoint(hit.point));
 
-				if(hit.collider.tag == "Enemy")
+				if (hit.collider.tag == "Enemy")
 				{
 					var enemy = hit.transform.gameObject;
 					enemy.GetComponent<EnemyController>().destroy();
 					log.NewActivity("Slime destroyed");
+				}
+				HarvesterController harvester = hit.collider.gameObject.GetComponent<HarvesterController> ();
+
+				if ((harvester != null) && (!harvester.isAttacked ())) {
+					harvester.kill ();
 				}
 //
 //				// Get a reference to a health script attached to the collider we hit

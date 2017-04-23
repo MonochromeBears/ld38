@@ -8,7 +8,7 @@ namespace Enemy
 		public HarvesterController target;
 
 		public void move(EnemyController enemy) {
-			if (this.target.isAttacked()) {
+			if (this.target.isAttacked() || this.target.isKilled()) {
 				enemy.goToIdle();
 				return;
 			}
