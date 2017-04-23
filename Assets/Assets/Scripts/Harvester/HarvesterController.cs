@@ -19,6 +19,7 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	private int capacity = 0;
 	private float deathTime;
+	private Vector3 oldPosition;
 
 	private State state = State.Idle;
 
@@ -37,6 +38,8 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 			{ State.Unloading, new UnloadingStrategy() },
 			{ State.Destroyed, new DestroyStrategy() }
 		};
+
+		this.oldPosition = this.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -165,5 +168,13 @@ public class HarvesterController : MonoBehaviour, MotionInterface {
 
 	public int getCapacity() {
 		return this.capacity;
+	}
+
+	public Vector3 getOldPosition() {
+		return this.oldPosition;
+	}
+
+	public void setOldPosition(Vector3 position) {
+		this.oldPosition = position;
 	}
 }

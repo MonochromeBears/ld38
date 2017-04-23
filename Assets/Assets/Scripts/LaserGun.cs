@@ -26,7 +26,7 @@ public class LaserGun : MonoBehaviour {
 		gunAudio = GetComponent<AudioSource>();
 
 		// Get and store a reference to our Camera by searching this GameObject and its parents
-		fpsCam = GetComponentInParent<Camera>();
+		fpsCam = GetComponent<Camera>();
 
 		log = fpsCam.GetComponent<GameLog>();
 	}
@@ -64,6 +64,7 @@ public class LaserGun : MonoBehaviour {
 
 				if ((harvester != null) && (!harvester.isAttacked ())) {
 					harvester.kill ();
+					log.NewActivity("You destroyed an harvester!");
 				}
 //
 //				// Get a reference to a health script attached to the collider we hit
