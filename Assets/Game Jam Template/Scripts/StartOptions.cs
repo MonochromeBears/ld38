@@ -101,6 +101,7 @@ public class StartOptions : MonoBehaviour {
 	{
 		//Hide the main menu UI element after fading out menu for start game in scene
 		showPanels.HideMenu();
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	public void StartGameInScene()
