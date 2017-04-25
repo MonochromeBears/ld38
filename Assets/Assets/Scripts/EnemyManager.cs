@@ -11,23 +11,22 @@ public class EnemyManager : MonoBehaviour
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
     private float currentTime = 0f;
+	private float nextSpawnTime = 0f;
     private float duration = 40f;
+	private float durationStep = 40f;
     private int limit = 20;
 
     void Start ()
     {
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
         Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-		StartSpawning();
-    }
-
-    void StartSpawning() {
-        this.currentTime = 0;
-        InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
     void Update() {
         this.currentTime += Time.deltaTime;
+		if (Time.time >= this.nextSpawnTime) {
+			this.Spawn ();
+		}
     }
 
     void Spawn ()
@@ -49,11 +48,11 @@ public class EnemyManager : MonoBehaviour
 		e.startPoint = Random.onUnitSphere * 5.0f;
         spawnPoints[spawnPointIndex].gameObject.GetComponent<Teleport>().summon();
 
-        if (this.currentTime > this.duration && this.spawnTime >= this.step) {
-            CancelInvoke("Spawn");
-            this.currentTime = 0f;
+		this.nextSpawnTime += this.spawnTime;
+
+		if (this.nextSpawnTime > this.duration && this.spawnTime >= this.step) {
             this.spawnTime -= this.step;
-            StartSpawning();
+			this.duration += this.durationStep;
         }
     }
 }
