@@ -50,8 +50,8 @@ public class pGUI : MonoBehaviour {
 		GameObject.FindWithTag ("aim").gameObject.SetActive (false);
 		GameObject.FindWithTag ("logger").gameObject.SetActive (false);
 
-		setScorePanel.GetComponent<AddScore>().SetScore(this.sylo.getCollected ());
 		setScorePanel.SetActive (true);
+		setScorePanel.GetComponent<AddScore>().SetScore(this.sylo.getCollected ());
 	}
 
 }
