@@ -3,13 +3,16 @@ using Enemy;
 
 public class EnemyManager : MonoBehaviour
 {
+    static public int amount = 0;
+
     public GameObject enemy;                // The enemy prefab to be spawned.
     public float spawnTime = 3f;            // How long between each spawn.
-    public float step = 0.25f;
+    public float step = 0.15f;
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
     private float currentTime = 0f;
-    private float duration = 20f;
+    private float duration = 40f;
+    private int limit = 30;
 
     void Start ()
     {
@@ -29,6 +32,12 @@ public class EnemyManager : MonoBehaviour
 
     void Spawn ()
     {
+        if (EnemyManager.amount > this.limit) {
+            return;
+        }
+        
+        EnemyManager.amount += 1;
+        
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
