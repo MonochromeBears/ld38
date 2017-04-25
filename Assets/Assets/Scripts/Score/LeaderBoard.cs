@@ -34,6 +34,7 @@ public class LeaderBoard : MonoBehaviour {
 
 	void OnGUI()
 	{
+		Debug.Log (this.gs);
 		GUILayoutOption[] width200 = new GUILayoutOption[] {GUILayout.Width(200)};
 
 		float width = 400;  // Make this wider to add more columns

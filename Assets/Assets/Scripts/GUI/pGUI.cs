@@ -10,6 +10,8 @@ public class pGUI : MonoBehaviour {
 
 	private bool isGameOver = false;
 
+	public GameObject setScorePanel;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +34,8 @@ public class pGUI : MonoBehaviour {
 			GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
 			GameObject.FindWithTag ("aim").gameObject.SetActive (false);
 			GameObject.FindWithTag ("logger").gameObject.SetActive (false);
+
+			setScorePanel.SetActive (true);
 			return;
 		}
 
