@@ -6,7 +6,10 @@ public class Sylo : MonoBehaviour {
 	public int damage = 30;
 	public GameObject resource;
 	public GameObject explosion;
+	public GameObject harvester;
 
+	private int spawnCapacity = 0;
+	private int spawnLimit = 500;
 	private int capacity = 0;
 	private bool playingDeath = false;
 	private float animationDuration = 2.0f;
@@ -34,6 +37,22 @@ public class Sylo : MonoBehaviour {
 			model.GetComponent<Renderer>().enabled = false;
 			this.anim = Sylo.Instantiate(this.explosion, this.transform.position, this.transform.rotation);
 		}
+
+		this.SpawnExtraHarvester();
+	}
+
+	void SpawnExtraHarvester() {
+		int harvAmount = GameObject.FindObjectsOfType<HarvesterController>().Length;
+		bool isLimitReached = this.spawnCapacity >= this.spawnLimit;
+
+		if (harvAmount < 4 && isLimitReached) {
+			this.spawnCapacity = 0;
+			Sylo.Instantiate(
+				this.harvester, 
+				this.transform.position + new Vector3(4, 0, 0), 
+				this.transform.rotation
+			);
+		}
 	}
 
 	public void getDamage() {
@@ -42,6 +61,7 @@ public class Sylo : MonoBehaviour {
 	}
 
 	public void load(int capacity) {
+		this.spawnCapacity += capacity;
 		this.capacity += capacity;
 	}
 

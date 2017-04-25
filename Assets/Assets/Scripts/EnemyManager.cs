@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
 
     private float currentTime = 0f;
     private float duration = 40f;
-    private int limit = 30;
+    private int limit = 20;
 
     void Start ()
     {
