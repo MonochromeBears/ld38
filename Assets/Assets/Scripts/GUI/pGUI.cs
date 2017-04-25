@@ -11,10 +11,11 @@ public class pGUI : MonoBehaviour {
 	private bool isGameOver = false;
 
 	public GameObject setScorePanel;
+	dreamloLeaderBoard dl;
 
 	// Use this for initialization
 	void Start () {
-		
+		this.dl = dreamloLeaderBoard.GetSceneDreamloLeaderboard();
 	}
 	
 	// Update is called once per frame
@@ -28,15 +29,7 @@ public class pGUI : MonoBehaviour {
 		bool isSyloDestroyed = GameObject.FindObjectsOfType<Sylo>().Length == 0;
 
 		if ((hasNoHarvesters || isSyloDestroyed)) {
-			this.isGameOver = true;
-			this.transform.Find ("GameOver").gameObject.SetActive (true);
-//			GameObject.FindWithTag ("score").gameObject.SetActive (false);
-			GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
-			GameObject.FindWithTag ("aim").gameObject.SetActive (false);
-			GameObject.FindWithTag ("logger").gameObject.SetActive (false);
-
-			setScorePanel.SetActive (true);
-			return;
+			this.GameOver ();
 		}
 
 		if (this.sylo != null && !this.isGameOver) {
@@ -49,4 +42,48 @@ public class pGUI : MonoBehaviour {
 		hCount.text = 
 			string.Format ("Harvesters left: {0}", harvestersLength);
 	}
+
+	private void GameOver() {
+		this.isGameOver = true;
+		this.transform.Find ("GameOver").gameObject.SetActive (true);
+		//			GameObject.FindWithTag ("score").gameObject.SetActive (false);
+		GameObject.FindWithTag ("h_count").gameObject.SetActive (false);
+		GameObject.FindWithTag ("aim").gameObject.SetActive (false);
+		GameObject.FindWithTag ("logger").gameObject.SetActive (false);
+
+		setScorePanel.SetActive (true);
+	}
+
+	void OnGUI()
+	{
+		if (isGameOver) {
+			GUILayoutOption[] width200 = new GUILayoutOption[] {GUILayout.Width(200)};
+
+			float width = 400;  // Make this wider to add more columns
+			float height = 200;
+
+			Rect r = new Rect((Screen.width / 2) - (width / 2), (Screen.height / 2 + 50) - (height), width, height);
+			GUILayout.BeginArea(r, new GUIStyle("box"));
+
+			var score = this.sylo.getCollected ();
+
+			GUILayout.Label("Total Score: " + score.ToString());
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("Your Name: ");
+			var playerName = GUILayout.TextField("Commander", width200);
+
+			if (GUILayout.Button("Save Score"))
+			{
+				// add the score...
+				if (dl.publicCode == "") Debug.LogError("You forgot to set the publicCode variable");
+				if (dl.privateCode == "") Debug.LogError("You forgot to set the privateCode variable");
+
+				dl.AddScore(playerName, score);
+			}
+			GUILayout.EndHorizontal();
+
+			GUILayout.EndArea();
+		}
+	}
+
 }
