@@ -11,7 +11,7 @@ public class LeaderBoard : MonoBehaviour {
 		// get the reference here...
 		this.dl = dreamloLeaderBoard.GetSceneDreamloLeaderboard();
 
-		// Stab: no request if not to do this;
+		// Stab: no result will be returned if not to call add method. It do not creating new entry, so it is ok.
 		dl.AddScore("Looser", 0);
 	}
 
@@ -30,15 +30,13 @@ public class LeaderBoard : MonoBehaviour {
 		GUILayout.BeginArea(r, new GUIStyle("box"));
 
 		List<dreamloLeaderBoard.Score> scoreList = dl.ToListHighToLow();
-		Debug.Log (scoreList.Count);
-		Debug.Log (scoreList == null);
 		if (scoreList == null) 
 		{
 			GUILayout.Label("(loading...)");
 		} 
 		else 
 		{
-			int maxToDisplay = 20;
+			int maxToDisplay = 8;
 			int count = 0;
 			foreach (dreamloLeaderBoard.Score currentScore in scoreList)
 			{
