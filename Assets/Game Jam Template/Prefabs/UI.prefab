@@ -733,14 +733,14 @@ GameObject:
   - component: {fileID: 22290916}
   - component: {fileID: 11404936}
   - component: {fileID: 22539526}
-  - component: {fileID: 114888755979042384}
+  - component: {fileID: 114074777784585188}
   m_Layer: 5
-  m_Name: EnterScore
+  m_Name: EnterScorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &192886
 GameObject:
   m_ObjectHideFlags: 1
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   menuPanel: {fileID: 164008}
   pausePanel: {fileID: 198696}
   scorePanel: {fileID: 1979077297623276}
-  enterScorePanel: {fileID: 0}
+  enterScorePanel: {fileID: 191734}
 --- !u!114 &11433024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4402,6 +4402,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114074777784585188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea20ba0d57674ce5a9674e217737921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!114 &114138144423649632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4882,17 +4894,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114888755979042384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35aad3b821114477848564e5c32d711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114892554405378632
 MonoBehaviour:
   m_ObjectHideFlags: 1

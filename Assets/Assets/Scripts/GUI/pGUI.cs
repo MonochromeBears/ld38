@@ -11,12 +11,10 @@ public class pGUI : MonoBehaviour {
 	private bool isGameOver = false;
 
 	public GameObject setScorePanel;
-	dreamloLeaderBoard dl;
-	string playerName = "";
 
 	// Use this for initialization
 	void Start () {
-		this.dl = dreamloLeaderBoard.GetSceneDreamloLeaderboard();
+
 	}
 	
 	// Update is called once per frame
@@ -52,39 +50,8 @@ public class pGUI : MonoBehaviour {
 		GameObject.FindWithTag ("aim").gameObject.SetActive (false);
 		GameObject.FindWithTag ("logger").gameObject.SetActive (false);
 
+		setScorePanel.GetComponent<AddScore>().SetScore(this.sylo.getCollected ());
 		setScorePanel.SetActive (true);
-	}
-
-	void OnGUI()
-	{
-		if (isGameOver) {
-			GUILayoutOption[] width200 = new GUILayoutOption[] {GUILayout.Width(200)};
-
-			float width = 400;  // Make this wider to add more columns
-			float height = 200;
-
-			Rect r = new Rect((Screen.width / 2) - (width / 2), (Screen.height / 2 + 50) - (height), width, height);
-			GUILayout.BeginArea(r, new GUIStyle("box"));
-
-			var score = this.sylo.getCollected ();
-
-			GUILayout.Label("Total Score: " + score.ToString());
-			GUILayout.BeginHorizontal();
-			GUILayout.Label("Your Name: ");
-			this.playerName = GUILayout.TextField(this.playerName, width200);
-
-			if (GUILayout.Button("Save Score"))
-			{
-				Debug.Log ("here11");
-				if (dl.publicCode == "") Debug.LogError("You forgot to set the publicCode variable");
-				if (dl.privateCode == "") Debug.LogError("You forgot to set the privateCode variable");
-
-				dl.AddScore(this.playerName, score);
-			}
-			GUILayout.EndHorizontal();
-
-			GUILayout.EndArea();
-		}
 	}
 
 }
