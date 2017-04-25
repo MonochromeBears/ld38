@@ -12,6 +12,7 @@ public class pGUI : MonoBehaviour {
 
 	public GameObject setScorePanel;
 	dreamloLeaderBoard dl;
+	string playerName = "";
 
 	// Use this for initialization
 	void Start () {
@@ -70,15 +71,15 @@ public class pGUI : MonoBehaviour {
 			GUILayout.Label("Total Score: " + score.ToString());
 			GUILayout.BeginHorizontal();
 			GUILayout.Label("Your Name: ");
-			var playerName = GUILayout.TextField("Commander", width200);
+			this.playerName = GUILayout.TextField(this.playerName, width200);
 
 			if (GUILayout.Button("Save Score"))
 			{
-				// add the score...
+				Debug.Log ("here11");
 				if (dl.publicCode == "") Debug.LogError("You forgot to set the publicCode variable");
 				if (dl.privateCode == "") Debug.LogError("You forgot to set the privateCode variable");
 
-				dl.AddScore(playerName, score);
+				dl.AddScore(this.playerName, score);
 			}
 			GUILayout.EndHorizontal();
 
