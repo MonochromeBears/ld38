@@ -462,20 +462,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 191734, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432662, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
-      propertyPath: enterScorePanel
-      value: 
-      objectReference: {fileID: 710196828}
-    - target: {fileID: 191734, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
-      propertyPath: m_Name
-      value: EnterScorePanel
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114888755979042384, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1170634648
